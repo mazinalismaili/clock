@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <style>
+    body{
+        background-color: lemonchiffon;
+        }
+    .centeredText{
+        text-align: center;
+        color: coral;
+    }
+    .container{
+        position: fixed;
+        top: 50%;
+        left: 45%;
+        margin-top: -100px;
+        margin-left: -150px;
+        width: 400px;
+        height: 100px;
+        border: 2px rosybrown;
+        border-style: hidden;
+        border-radius: 10px;
+        border-color: seashell;
+        font-size: 50px;
+        color: sienna;
+        text-align: center;
+        padding-top: 100px;
+        padding-bottom: 40px;
+        background-color: peru;
+    }
+    </style>
+    <script>
+    function getCurrentTime(){
+        var currentTime = new Date();
+        var hour = currentTime.getHours();
+        var minut = fixTime(currentTime.getMinutes());
+        var second = fixTime(currentTime.getSeconds());
+
+        document.getElementById('clock').innerHTML = hour + ":" + minut + ":" + second;
+
+        var update = setTimeout(getCurrentTime,500);
+    }
+    function fixTime(time){
+        if(time < 10){time = "0" + time;}
+        return time;
+    }
+    </script>
+    <head>
+        <title>Clock</title>
+    </head>
+    <body onload="getCurrentTime()">
+        <h1 class="centeredText">This is a simple clock project including CSS sheet!</h1>
+        <dev id="clock" class="container"> 
+        </dev>
+    </body>
+</html>
